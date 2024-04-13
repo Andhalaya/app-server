@@ -1,17 +1,15 @@
 const express = require('express')
 const app = express();
-const PORT = 3024;
 const authRoutes = require('./src/routes/authRoutes')
 const postRoutes = require('./src/routes/postsRoutes')
 const userRoutes = require('./src/routes/userRoutes')
 const {dbConnection} = require('./src/config/db')
 const bodyParser = require('body-parser');
-
 const path = require('path')
 const cors = require('cors')
 
-
 require ('dotenv').config();
+const PORT = process.env.PORT;
 
 dbConnection();
 
