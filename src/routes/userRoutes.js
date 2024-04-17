@@ -7,7 +7,7 @@ router.get('/', verifyToken, getUsers);
 router.get('/me',verifyToken, getSelf );
 router.delete('/me', verifyToken, deleteUser);
 router.patch('/profile', verifyToken, editProfile);
-router.patch('/follow/:friendId', toggleFriend);
-router.get('/:userId', getUserById)
+router.patch('/follow/:friendId', verifyToken, toggleFriend);
+router.get('/:userId', verifyToken, getUserById)
 
 module.exports = router
