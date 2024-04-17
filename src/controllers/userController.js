@@ -51,13 +51,18 @@ exports.deleteUser = async (req, res) => {
 
 exports.editProfile = async (req, res) => {
     try{
+        const uploadedFile = req.file;
+        const filePath = uploadedFile
+            ? '/uploads/' + uploadedFile.filename
+            : '';
+
         const {fullName, email, userName, location, occupation, gitHub} = req.body
         if (!fullName || !email) {
             return res.status(400).json({ message: "Full name and email are required fields" });
         }
         const user = await User.findOneAndUpdate(
             {_id: req.body.id}, 
-            {fullName, email, userName, location, occupation, gitHub },
+            {fullName, email, userName, location, occupation, gitHub, profilePicture: filePath },
             { new: true })
         if (!user) return res.status(404).json({ message: "User not found" });
         res.json(user);
