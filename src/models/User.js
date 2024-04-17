@@ -32,8 +32,10 @@ const UserSchema = new mongoose.Schema(
             default: [],
         },
         posts: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Post' }],
+        projects: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Project'}],
         location: String,
         occupation: String,
+        gitHub: String
     },
     { timestamps: true });
 

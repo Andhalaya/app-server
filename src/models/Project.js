@@ -1,12 +1,13 @@
 const mongoose = require('mongoose');
 
-const postSchema = mongoose.Schema({
+const projectSchema = mongoose.Schema({
     user:{
         type: mongoose.Schema.Types.ObjectId, ref: 'User',
         required: true,
     },
     title: {
-        type: String
+        type: String,
+        required: true
     },
     description: {
         type: String
@@ -30,6 +31,6 @@ const postSchema = mongoose.Schema({
     } 
 }, {timestamps: true})
 
-const Post = mongoose.model('Post', postSchema);
+const Project = mongoose.model('Project', projectSchema);
 
-module.exports = Post;
+module.exports = Project;
