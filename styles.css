@@ -1,16 +1,36 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inder&display=swap');
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    color: #ffffff;
+  }
+
+  .grey{
+    color:rgba(255, 255, 255, 0.34)
+  }
+
+  .user-img-big{
+    width: 70px;
+    border-radius: 30px;
+  }
+
+  .user-img-small{
+    width: 40px;
+    border-radius: 30px;
   }
   
   /* Style the body */
   body {
-    font-family: 'Poppins';
-    font-size: 0.875rem;
+    font-family: "Inder", sans-serif;
+    font-size: 14px;
     line-height: 1.6;
+    background-image: url('/public/backgrounds/peakpx.jpg');
+    background-size: cover;
+    background-position: center; 
   }
   
   /* Header/logo Title */
@@ -47,23 +67,100 @@
     background-color: #ddd;
     color: black;
   }
-  
-  /* Column container */
-  .main {  
+
+  .main{ 
     display: flex;
     flex-wrap: wrap;
-    background-color: #f0f2f5;
     margin-top: 60px;
+    padding: 20px;
+  }
+
+  .fakeimg{
+    width: 80%;
+  }
+
+  .group-left{
+    flex: 20%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .group-right{
+    flex: 80%;
+    display: flex;
+    gap: 30px;
+    padding: 20px;
+  }
+
+  .box{
+    background-color: rgba(5, 3, 19, 0.28);
+    padding: 2rem;
+    border-radius: 30px;
+  }
+
+  .post-section{
+    flex: 70%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .posts{
+    
+    width: 100%;
+  }
+
+  .friends{
+    flex: 30%;
+  }
+
+  @media (max-width: 1300px) {
+    .group-right{
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 20px;
+    }
+  }
+
+  @media(max-width: 700px) {
+    .main{
+        display: block;
+    }
+  }
+
+  @media(max-width: 400px){
+    .main{
+        padding: 0;
+    }
+
+    .group-left, .group-right{
+        padding: 10px 0px;
+    }
+
+    .box{
+        border-radius: 0;
+    }
+  }
+  
+  
+  /* .main { 
+    margin-top: 60px;
+    display: flex;
+    flex-wrap: wrap;
+    background-position: center;
+    background-size: cover;
+    padding: 5rem 6rem;
   }
   
   .box{
-    background-color: #ffffff;
+    background-color: rgba(5, 3, 19, 0.28);
     padding: 2rem;
-    border-radius: 20px;
-    box-shadow: 0px 0px 10px 0px #bebebe;
+    border-radius: 30px;
   }
   
-  /* Fake image, just for this example */
+  
   .fakeimg {
     width: 80%;
   }
@@ -73,11 +170,11 @@
     border-radius: 10px;
   }
 
-  .background{
-    background-image: url('public/uploads/1517636940967.jpeg');
-    height: 300px;
-    width: 100%;
-}
+  .header{
+    background-color: rgba(0, 0, 0, 0.35);
+  }
+
+
 
 .user-img img{
     border-radius: 70px;
@@ -118,48 +215,39 @@
     width: 40px;
 }
 
-.info-container{
+.col-1{
     
     flex: 20%;
-    padding: 1rem;
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    position: relative;
+
 }
 
-.side-container{
-    flex: 80%;
-    padding: 2rem;
+.col-2{
+    flex: 50%; 
     display: flex;
+    flex-direction: column;
     justify-content: center;
     gap: 2rem;
 
 }
 
+.col-3{
+    flex: 20%;
+    display: flex; 
+}
+
 .container{
     display: flex;
     width: 100%;
-    position: relative;
+    gap: 3rem;
 }
 
 .space-between{
     justify-content: space-between;
 }
 
-.side-container .box{
-    flex-wrap: wrap;
-    min-width: 300px;
-}
-
-.box2{
-    flex: 50%;
-}
-
-.box1{
-    flex: 50%;
-    margin-bottom: 20px;
-}
 
 .project{
 
@@ -188,7 +276,7 @@
     padding: 10px 20px;
     margin-top: 20px;
 }
-  /* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+ 
   
   @media (max-width: 350px) {
     .navbar{
@@ -201,11 +289,8 @@
   }
 
   @media (max-width: 1350px) {
-    .project{
-        width: 100%;
-    }
-    .side-container{
-        display: block;
+    .main{
+        padding: 3rem ;
     }
   }
 
@@ -217,4 +302,4 @@
     .box1{
         margin-bottom: 20px;
     }
-  }
+  } */
