@@ -6,11 +6,19 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    color: #ffffff;
+    color: rgba(255, 255, 255, 0.605);
   }
 
   .grey{
     color:rgba(255, 255, 255, 0.34)
+  }
+
+  .white{
+    color: white;
+  }
+
+  .poppins{
+    font-family: "Poppins", sans-serif;
   }
 
   .user-img-big{
@@ -25,19 +33,20 @@
   
   /* Style the body */
   body {
-    font-family: "Inder", sans-serif;
-    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgba(217, 217, 217, 1);
+    font-size: 16px;
     line-height: 1.6;
     background-image: url('/public/backgrounds/peakpx.jpg');
     background-size: cover;
     background-position: center; 
   }
   
-  /* Header/logo Title */
+ 
   .header {
     top: 0;
     text-align: center;
-    
+    background-color: rgba(0, 0, 0, 0.346);
     color: rgb(0, 0, 0);
     display: flex;
     justify-content: space-between;
@@ -48,7 +57,6 @@
     z-index: 1;
   }
   
-  /* Style the top navigation bar */
   .navbar {
     display: flex;
     background-color: #333;
@@ -70,9 +78,9 @@
 
   .main{ 
     display: flex;
-    flex-wrap: wrap;
     margin-top: 60px;
     padding: 20px;
+    
   }
 
   .fakeimg{
@@ -98,6 +106,7 @@
     background-color: rgba(5, 3, 19, 0.28);
     padding: 2rem;
     border-radius: 30px;
+    
   }
 
   .post-section{
@@ -131,68 +140,22 @@
   }
 
   @media(max-width: 400px){
-    .main{
-        padding: 0;
+    *{
+      font-size: 12px;
     }
-
     .group-left, .group-right{
         padding: 10px 0px;
+    }
+
+    .fakeimg{
+      width: 100%;
     }
 
     .box{
         border-radius: 0;
     }
   }
-  
-  
-  /* .main { 
-    margin-top: 60px;
-    display: flex;
-    flex-wrap: wrap;
-    background-position: center;
-    background-size: cover;
-    padding: 5rem 6rem;
-  }
-  
-  .box{
-    background-color: rgba(5, 3, 19, 0.28);
-    padding: 2rem;
-    border-radius: 30px;
-  }
-  
-  
-  .fakeimg {
-    width: 80%;
-  }
-
-  .project-img{
-    width: 100%;
-    border-radius: 10px;
-  }
-
-  .header{
-    background-color: rgba(0, 0, 0, 0.35);
-  }
-
-
-
-.user-img img{
-    border-radius: 70px;
-    border: 3px solid white;
-    box-shadow: 0px 0px 7px 0px #848484;
-}
-
-.user-img{
-    position: absolute;
-    top: -80px;
-    left: 130px;
-}
-
-.box p{
-    font-weight: 300;
-    
-}
-
+ 
 .inline{
     display: flex;
     justify-content: space-between;
@@ -201,66 +164,9 @@
 
 .margin-bottom{
     margin-bottom: 20px;
-}
-
-.user{
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    width: 100%;
-}
-
-.user img{
-    border-radius: 60px;
-    width: 40px;
-}
-
-.col-1{
-    
-    flex: 20%;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-
-}
-
-.col-2{
-    flex: 50%; 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 2rem;
-
-}
-
-.col-3{
-    flex: 20%;
-    display: flex; 
-}
-
-.container{
-    display: flex;
-    width: 100%;
-    gap: 3rem;
-}
-
-.space-between{
-    justify-content: space-between;
-}
+} 
 
 
-.project{
-
-    padding: 1rem;
-    border-radius: 10px;
-    width: 48%;
-}
-
-.project-container{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-}
 
 .btn:hover{
     background-color: #0080ff;
@@ -278,28 +184,3 @@
 }
  
   
-  @media (max-width: 350px) {
-    .navbar{
-        flex-direction: column;
-    }
-    .logo{
-        display: none;
-    }
-
-  }
-
-  @media (max-width: 1350px) {
-    .main{
-        padding: 3rem ;
-    }
-  }
-
-  @media (max-width: 700px) {
-    .container{
-        display: block;
-    }
-
-    .box1{
-        margin-bottom: 20px;
-    }
-  } */
