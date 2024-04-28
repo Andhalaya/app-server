@@ -24,7 +24,8 @@ exports.createPost = async (req, res) => {
             description: req.body.description, 
             profilePicture: filePath, 
             codeSnippet: req.body.codeSnippet, 
-            link: req.body.link
+            link: req.body.link,
+            tags: req.body.tags
         })
         const savedPost = await newPost.save();
         const savedPostId = savedPost._id;
