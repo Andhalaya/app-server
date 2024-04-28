@@ -20,6 +20,10 @@ const postSchema = mongoose.Schema({
     link: {
         type: String
     },
+    tags: {
+        type: String,
+        default: [],
+    },
     likes: {
         type: Array, 
         default: [],  
