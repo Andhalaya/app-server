@@ -30,7 +30,9 @@ exports.register = [
                 fullName: req.body.fullName,
                 userName: req.body.userName,
                 email: req.body.email,
-                password: passwordHash 
+                password: passwordHash,
+                occupation: req.body.occupation,
+                location: req.body.location 
             });
 
             await newUser.save();

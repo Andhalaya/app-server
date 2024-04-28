@@ -34,7 +34,7 @@ const UserSchema = new mongoose.Schema(
         posts: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Post' }],
         projects: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Project'}],
         location: String,
-        occupation: String,
+        occupation: String, 
         gitHub: String,
         profileCover: String
     },
