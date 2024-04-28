@@ -51,27 +51,35 @@ exports.deleteUser = async (req, res) => {
 }
 
 exports.editProfile = async (req, res) => {
-    try{
-        const uploadedFile = req.file;
-        const filePath = uploadedFile
-            ? '/uploads/' + uploadedFile.filename
-            : '';
+    try {
+        const { fullName, email, userName, location, occupation, gitHub } = req.body;
 
-        const {fullName, email, userName, location, occupation, gitHub} = req.body
         if (!fullName || !email) {
             return res.status(400).json({ message: "Full name and email are required fields" });
         }
-        const user = await User.findOneAndUpdate(
-            {_id: req.body.id}, 
-            {fullName, email, userName, location, occupation, gitHub, profilePicture: filePath },
-            { new: true })
-        if (!user) return res.status(404).json({ message: "User not found" });
-        res.json(user);
-    }catch(error){
+
+        let updateFields = { fullName, email, userName, location, occupation, gitHub };
+        if (req.file) {
+            const filePath = '/uploads/' + req.file.filename;
+            updateFields.profilePicture = filePath;
+        }
+        const updatedUser = await User.findByIdAndUpdate(
+            req.body.id,
+            updateFields,
+            { new: true }
+        );
+
+        if (!updatedUser) {
+            return res.status(404).json({ message: "User not found" });
+        }
+
+        res.json(updatedUser);
+    } catch (error) {
         console.error('Error updating user', error);
         res.status(500).json({ message: 'Internal server error' });
     }
-}
+};
+
 
 exports.toggleFriend = async (req, res) => {
     const { userId } = req.body;
