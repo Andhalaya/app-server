@@ -4,7 +4,7 @@ const {verifyToken} = require('../middlewares/authMiddleware')
 const upload = require('../config/multer')
 const { getSelf, getUsers, deleteUser, editProfile, getUserById, toggleFriend, setCoverImage } = require('../controllers/userController');
 
-router.get('/', verifyToken, getUsers);
+router.get('/', getUsers);
 router.get('/me',verifyToken, getSelf );
 router.delete('/me', verifyToken, deleteUser);
 router.patch('/profile', upload.single('profilePicture'), editProfile);
