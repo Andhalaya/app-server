@@ -3,12 +3,12 @@ const app = express();
 const http = require('http');
 const socketIo = require('socket.io');
 const server = http.createServer(app);
-
+require ('dotenv').config();
 const cors = require('cors');
 
 const io = socketIo(server, {
     cors: {
-        origin: "https://the-lazy-coder.netlify.app"
+        origin: [process.env.CORS_ORIGIN , 'http://localhost:5173' ] 
     }
 });
 
@@ -27,8 +27,8 @@ const bodyParser = require('body-parser');
 
 const path = require('path');
 
-require ('dotenv').config();
-const PORT = process.env.PORT;
+
+const PORT = process.env.PORT || 8080;
 
 dbConnection();
 
