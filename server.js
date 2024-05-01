@@ -8,7 +8,7 @@ const cors = require('cors');
 
 const io = socketIo(server, {
     cors: {
-        origin: "http://localhost:5173"
+        origin: "https://the-lazy-coder.netlify.app"
     }
 });
 
