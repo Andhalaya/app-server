@@ -32,7 +32,7 @@ router.get("/:userId", async (req, res) => {
     try {
         const conversation = await Conversation.find({
             members: { $in: [req.params.userId] },
-        });
+        }).populate('messages');
         res.status(200).json(conversation);
     } catch (err) {
         res.status(500).json(err);
