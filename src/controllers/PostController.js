@@ -50,8 +50,26 @@ exports.createPost = async (req, res) => {
 
 exports.deletePost = async (req, res) => {
     try{
-        const postId = req.params.postId
-        await Post.findOneAndDelete({ _id: postId})
+        const postId = req.params.postId;
+        const userId = req.body.userId;
+
+        const user = await User.findById(userId);
+
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+
+        
+        if (!user.posts.includes(postId)) {
+            return res.status(404).json({ message: 'Post not found for this user' });
+        }
+
+        user.posts = user.posts.filter(post => post.toString() !== postId)
+        
+        await user.save();
+
+        await Post.findOneAndDelete({ _id: postId});
+
         
         res.status(200).json({ message: 'Post successfully deleted'});
         
