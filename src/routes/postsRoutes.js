@@ -5,7 +5,7 @@ const {verifyToken} = require('../middlewares/authMiddleware')
 const upload = require('../config/multer')
 
 router.get('/', verifyToken, getPosts );
-router.post('/', verifyToken, upload.single('image'), createPost);
+router.post('/', upload.single('image'), createPost);
 router.delete('/:postId', verifyToken, deletePost);
 router.patch('/:postId/like', verifyToken, likePost);
 router.patch('/:postId/comment', verifyToken, addComment);
