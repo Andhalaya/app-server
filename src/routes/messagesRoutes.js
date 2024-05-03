@@ -2,8 +2,9 @@ const express = require('express');
 const router = express.Router();
 const Message = require("../models/Message");
 const Conversation = require('../models/Conversation');
+const {verifyToken} = require('../middlewares/authMiddleware')
 
-router.post("/", async (req, res) => {
+router.post("/", verifyToken, async (req, res) => {
     const newMessage = new Message(req.body);
 
     try {
@@ -25,7 +26,7 @@ router.post("/", async (req, res) => {
 });
 
 
-router.get("/:conversationId", async (req, res) => {
+router.get("/:conversationId",verifyToken, async (req, res) => {
     try {
         const messages = await Message.find({
             conversationId: req.params.conversationId,

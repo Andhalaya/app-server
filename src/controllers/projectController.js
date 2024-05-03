@@ -49,7 +49,7 @@ exports.createProject = async (req, res) => {
 exports.getProjectById = async (req, res) => {
     
         try {
-            const project = await Project.findOne({ _id: req.params.projectId });
+            const project = await Project.findOne({ _id: req.params.projectId }).populate('user');
             if (!project) return res.status(404).json({ message: "Project not found" });
             res.json(project);
         } catch(error) {
