@@ -128,5 +128,21 @@ exports.setCoverImage = async (req, res) => {
     }
 }
 
+exports.getFriends = async (req, res) => {
+    const {userId} = req.params;
+    
+    try{
+        const user = await User.findById(userId).populate('friends')
+        if(!user){
+            return res.status(404).json({message: 'User not found'});
+        }
+        const friends = user.friends;
+        res.status(200).json(friends);
+
+    }catch(error){
+        res.status(500).json({ error: "Internal server error" });
+    }
+}
+
 
 
