@@ -28,6 +28,10 @@ const projectSchema = mongoose.Schema({
     comments:{
         type: Array,
         default: []
+    },
+    tags: {
+        type: Array,
+        default: [],
     } 
 }, {timestamps: true})
 
