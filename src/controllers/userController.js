@@ -25,10 +25,9 @@ exports.getUserById = async (req, res) => {
 
 exports.getSelf = async (req, res) => {
     try {
-        const user = await User.findOne({ _id: req.user });
+        const user = await User.findOne({ _id: req.user }).populate('friends');
         if (!user) return res.status(404).json({ message: "User not found" });
-        const friendsData = await User.find({ _id: { $in: user.friends } });
-        res.json({ user: {user, friendsData} });
+        res.json({ user: {user} });
     } catch(error) {
         console.error('Error getting user', error);
         res.status(500).json({ message: 'Internal server error' });
