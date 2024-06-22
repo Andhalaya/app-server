@@ -7,7 +7,7 @@ exports.register = [
     body("fullName").trim().escape().notEmpty().withMessage("Full name is required."),
     body("userName").trim().escape().notEmpty().matches(/^\S+$/).withMessage("Username must be a single word without spaces").isLength({ min: 3, max: 20 }).withMessage("Username must have between 3 and 20 characters."),
     body("email").trim().escape().isEmail().withMessage("Email is not valid."),
-    body("password").trim().escape().isLength({ min: 6 }).withMessage("Password must have at least 6 characters").matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/).withMessage("Password must include at least one uppercase letter, one lowercase letter, one number, and one special character"),
+    body("password").trim().escape().isLength({ min: 6 }).withMessage("Password must have at least 6 characters").matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%^*?&~#\.?])[A-Za-z\d@$!%*?&]+$/).withMessage("Password must include at least one uppercase letter, one lowercase letter, one number, and one special character (@ $ ! % * ? &)"),
     async (req, res) => {
         try {
             const errors = validationResult(req);
